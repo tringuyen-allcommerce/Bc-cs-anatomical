@@ -1,0 +1,237 @@
+
+{{#or banners.bottom theme_settings.instantload}}
+<div class="container">
+    {{#if settings.data_tag_enabled}}
+        <div class="banners banners--bottom" data-banner-location="bottom">
+            {{#each (limit banners.bottom_metadata 1)}}
+                <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}" data-name="{{this.banner-name}}">
+                    <div data-event-type="promotion-click">
+                        {{{this.content}}}
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    {{else}}
+        <div class="banners banners--bottom" data-banner-location="bottom">
+            <div class="banner">
+                {{{limit banners.bottom 1}}}
+            </div>
+        </div>
+    {{/if}}
+</div>
+{{/or}}
+
+{{{region name="footer_before"}}}
+{{{region name="footer_before--global"}}}
+
+{{#if settings.show_newsletter_box}}
+    {{#if theme_settings.nl_popup_show '===' 'home'}}
+        {{#if page_type '===' 'default'}}
+            {{> components/emthemes-modez/newsletter/modal}}
+        {{/if}}
+    {{else if theme_settings.nl_popup_show '===' 'all'}}
+        {{> components/emthemes-modez/newsletter/modal}}
+    {{/if}}
+{{/if}}
+
+<footer class="footer" role="contentinfo">
+    {{#if settings.show_newsletter_box}}
+    {{#if theme_settings.footer_show_newsletter}}
+    <div class="emthemesModez-footer-topColumns-wrapper">
+        <div class="container">
+            <div class="emthemesModez-footer-topColumns">
+                <div class="emthemesModez-footer-newsletter">
+                    {{> components/emthemes-modez/newsletter/section}}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/if}}
+    {{/if}}
+    <div class="container">
+        <section class="footer-info">
+            {{#if theme_settings.footer_show_aboutus}}
+                <article class="footer-info-col footer-info-col--about" data-section-type="storeInfo">
+                    {{{region name="footer_before_logo--global"}}}
+                    <div class="footer-info-heading">
+                        <div class="footer-logo">
+                            {{> components/common/store-logo}}
+                        </div>
+                    </div>
+                    {{{region name="footer_below_logo--global"}}}
+
+                    {{#if theme_settings.footer_show_contact}}
+                        <ul class="fa-ul">
+                            <li><i class="fa fa-li fa-map-marker"></i><address>{{nl2br settings.address}}</address></li>
+                            {{#if settings.phone_number}}
+                            <li><i class="fa fa-li fa-phone"></i><a href="tel:{{settings.phone_number}}">{{lang 'footer.call_us' phone_number=settings.phone_number}}</a></li>
+                            {{/if}}
+                        </ul>
+                    {{/if}}
+
+                    {{#if theme_settings.social_icon_placement_bottom}}
+                        {{> components/common/social-links style="alt"}}
+                    {{/if}}
+
+                    {{{region name="footer_below_contact--global"}}}
+                </article>
+            {{/if}}        
+            {{#if theme_settings.footer_show_pages '>' -4}}
+                <article class="footer-info-col" data-section-type="footer-categories">
+                    <h5 class="footer-info-heading">Get In Touch</h5>
+                    <ul class="footer-info-list">
+                                <li>
+                                    <a href="https://anatomywarehouse.com/request-a-quote">Request a Quote</a>
+                                </li>
+                                <li>
+                                    <a href="https://anatomywarehouse.com/purchase-orders">Submit a Purchase Order</a> 
+                                </li>
+                                <li>
+                                    <a href="https://anatomywarehouse.com/custom-product-development">Custom Product Development</a> 
+                                </li>
+                                <li>
+                                    <a href="https://anatomywarehouse.com/contact-us">Contact Us</a> 
+                                </li>
+                                <li>
+                                    <a href="https://anatomywarehouse.com/our-commitment-to-accessibility">Accessibility</a> 
+                                </li>
+                                <li>
+                                    <a href="https://anatomicalworldwide.discoveredats.com/">Careers</a>
+                                </li>
+                                <li>
+                                    <a href="https://anatomywarehouse.com/about-anatomywarehouse">About Us</a> 
+                                </li>
+                    </ul>
+                    {{{region name="footer_below_pages--global"}}}
+                </article>
+            {{/if}}                             
+            {{#if theme_settings.footer_show_pages '>' -3}}
+                <article class="footer-info-col" data-section-type="footer-categories">
+                    <h5 class="footer-info-heading">Customer Service</h5>
+                    <ul class="footer-info-list">
+                                <li>
+                                    <a href="https://www.anatomywarehouse.com/shipping-delivery">Shipping Info</a>
+                                </li>
+                                <li>
+                                    <a href="https://anatomywarehouse.com/returns-exchanges">Request a Return</a> 
+                                </li>
+                                <li>
+                                    <a href="https://anatomywarehouse.com/international-shipping">International Shipping</a> 
+                                </li>
+                                <li>
+                                    <a href="https://anatomywarehouse.com/axis-scientific-warranty/">Warranty Portal</a> 
+                                </li>                                 
+                                <li>
+                                    <a href="https://anatomywarehouse.com/customer-testimonials">Customer Testimonials</a> 
+                                </li>
+                                <li>
+                                    <a href="https://app.termly.io/document/privacy-policy/49e05f6d-0143-4051-be2b-fdd37559fdb3" target="_blank" >Privacy Policy</a> 
+                                </li>          
+                    </ul>
+                </article>
+            {{/if}}            
+            {{#if theme_settings.footer_show_pages '>' -3}}
+                <article class="footer-info-col" data-section-type="footer-categories">
+                    <h5 class="footer-info-heading">Specials & Deals</h5>
+                    <ul class="footer-info-list">
+                                <li>
+                                    <a href="https://www.anatomywarehouse.com/low-price-guarantee">Low Price Guarantee</a> 
+                                </li>                               
+                                <li>
+                                    <a href="https://www.anatomywarehouse.com/money-back-guarantee">Money Back Guarantee</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.anatomywarehouse.com/request-a-quote">Volume Discounts</a> 
+                                </li>
+                                <li>
+                                    <a href="https://anatomywarehouse.com/giftcertificates.php">Gift Certificates</a> 
+                                </li> 
+                                <li>
+                                    <a href="https://anatomywarehouse.com/axis-scientific/?sort=newest&limit=100&mode=4">New Products</a> 
+                                </li>
+                                <li>
+                                    <a href="https://anatomywarehouse.com/distance-learning-portal/">Distance Learning Portal</a>
+                                </li>
+                    </ul>
+                </article>
+            {{/if}}    
+            {{#if theme_settings.footer_show_pages '>' -2}}
+                <article class="footer-info-col" data-section-type="footer-categories">
+                    <h5 class="footer-info-heading">{{lang 'footer.navigate'}}</h5>
+                    <ul class="footer-info-list">
+                        {{#if theme_settings.footer_show_pages '>' -1}}
+                            {{#each (limit pages theme_settings.footer_show_pages)}}
+                                <li>
+                                    <a href="{{url}}">{{name}}</a>
+                                </li>
+                            {{/each}}
+                        {{else}}
+                            {{#each pages}}
+                                <li>
+                                    <a href="{{url}}">{{name}}</a>
+                                </li>
+                            {{/each}}
+                        {{/if}}
+                        <li>
+                            <a href="{{urls.sitemap}}">{{lang 'sitemap.page_title'}}</a>
+                        </li>
+                    </ul>
+                    {{{region name="footer_below_categories--global"}}}
+                </article>
+            {{/if}}
+ 
+            {{#if theme_settings.footer_show_links_1}}
+                {{> components/emthemes-modez/common/footer-links index=1}}
+            {{/if}}
+
+            {{#if theme_settings.footer_show_links_2}}
+                {{> components/emthemes-modez/common/footer-links index=2}}
+            {{/if}}
+            
+            {{#if theme_settings.footer_show_links_3}}
+                {{> components/emthemes-modez/common/footer-links index=3}}
+            {{/if}}
+            
+            {{#if theme_settings.footer_show_links_4}}
+                {{> components/emthemes-modez/common/footer-links index=4}}
+            {{/if}}
+
+
+            {{#if theme_settings.show_shop_by_brand}}
+                <article class="footer-info-col footer-info-col--brands" data-section-type="footer-brands">
+                    <h5 class="footer-info-heading">{{lang 'footer.brands'}}</h5>
+                    <ul class="footer-info-list">
+                        {{#each (limit shop_by_brand theme_settings.show_shop_by_brand)}}
+                            <li>
+                                <a href="{{url}}">{{name}}</a>
+                            </li>
+                        {{/each}}
+                        <li><a href="{{urls.brands}}">{{lang 'common.view_all'}}</a></li>
+                    </ul>
+                    {{{region name="footer_below_brands--global"}}}
+                </article>
+            {{/if}}
+
+        </section>
+        {{{region name="footer_below_columns--global"}}}
+    </div>
+
+    <div class="footer-copyright">
+        <div class="container">
+            <p class="powered-by">
+                {{#if theme_settings.show_copyright_footer}}
+                    &copy; <span id="copyright_year"></span> {{settings.store_name}}.
+                    <script>
+                        document.getElementById("copyright_year").innerHTML = new Date().getFullYear();
+                    </script>
+                {{/if}}
+            </p>
+
+            {{> components/common/payment-icons}}
+
+            {{{region name="ssl_site_seal--global"}}}
+        </div>
+    </div>
+</footer>
+
+{{{region name="footer_bottom--global"}}}
